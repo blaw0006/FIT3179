@@ -25,7 +25,9 @@
     "color": {
       "field": "Nominalised_vaccinations",
       "type": "quantitative",
-      "scale": {"type": "log"}
+      "scale": {"type": "threshold",
+      "domain": [1,2,3,5,10]
+      }
     },
     "tooltip": [
       {"field": "properties.short", "type": "nominal", "title": "State"},
