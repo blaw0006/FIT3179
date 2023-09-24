@@ -1,39 +1,35 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "title": "First dose Vaccinations in Malaysia (March 2021)",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
-    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/js/output/Malaysia.json",
-    "format": {
-      "type": "topojson",
-      "feature": "Week_9_homework/js/output/ne_110m_graticules_30.json"
-    }
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/js/Malaysia_final.json",
+    "format": {"type": "topojson", "feature": "Malaysia"}
   },
   "transform": [
     {
-      "lookup": "properties.name",
+      "lookup": "properties.short",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/data/Vaccination.csv"
+          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/data/clean_vaccination_data.csv"
         },
-        "key": "dose1_perlis",
-        "fields": ["Active"]
+        "key": "State",
+        "fields": ["Nominalised_vaccinations"]
       }
-    },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+    }
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "Nominalised_vaccinations",
       "type": "quantitative",
       "scale": {"type": "log"}
     },
     "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Active", "type": "quantitative"}
+      {"field": "properties.short", "type": "nominal", "title": "State"},
+      {"field": "Nominalised_vaccinations", "type": "quantitative"}
     ]
   },
   "config": {}
