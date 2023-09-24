@@ -18,12 +18,13 @@
         "key": "State",
         "fields": ["Nominalised_vaccinations"]
       }
-    }
+    },
+    {"calculate": "datum.Nominalised_vaccinations", "as": "Percentage Vaccinated"}
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Nominalised_vaccinations",
+      "field": "Percentage Vaccinated",
       "type": "quantitative",
       "scale": {"type": "threshold",
       "domain": [1,2,3,5,10]
@@ -31,7 +32,7 @@
     },
     "tooltip": [
       {"field": "properties.short", "type": "nominal", "title": "State"},
-      {"field": "Nominalised_vaccinations", "type": "quantitative"}
+      {"field": "Percentage Vaccinated", "type": "quantitative"}
     ]
   },
   "config": {}
