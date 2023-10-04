@@ -5,7 +5,7 @@
   "height": 400,
   "projection": {"type": "equalEarth"},
   "data": {
-    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/js/Malaysia_final.json",
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/js/Malaysia_final.json",
     "format": {"type": "topojson", "feature": "Malaysia"}
   },
   "transform": [
@@ -13,7 +13,7 @@
       "lookup": "properties.short",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/data/clean_vaccination_data.csv"
+          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv"
         },
         "key": "State",
         "fields": ["Nominalised_vaccinations"]
