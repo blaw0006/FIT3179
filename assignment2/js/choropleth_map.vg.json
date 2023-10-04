@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "First dose Vaccinations in Malaysia (March 2021)",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/js/Malaysia_final.json",
+    "format": {"type": "topojson", "feature": "Malaysia"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.short",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/Week_9_homework/data/clean_vaccination_data.csv"
+        },
+        "key": "State",
+        "fields": ["Nominalised_vaccinations"]
+      }
+    },
+    {"calculate": "datum.Nominalised_vaccinations", "as": "Percentage Vaccinated"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Percentage Vaccinated",
+      "type": "quantitative",
+      "scale": {"type": "threshold",
+      "domain": [1,2,3,5,10]
+      }
+    },
+    "tooltip": [
+      {"field": "properties.short", "type": "nominal", "title": "State"},
+      {"field": "Percentage Vaccinated", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
