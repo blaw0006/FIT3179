@@ -1,4 +1,4 @@
-﻿date,vaccinated_pop,State,Dose,Total_pop,Nominalised Vaccinations,,dose1_perak,dose2_perak,dose1_selangor,dose2_selangor,dose1_kl,dose2_kl,dose1_putrajaya,dose2_putrajaya,dose1_ns,dose2_ns,dose1_melaka,dose2_melaka,dose1_kelantan,dose2_kelantan,dose1_terengganu,dose2_terengganu,dose1_pahang,dose2_pahang,dose1_johor,dose2_johor,dose1_sabah,dose2_sabah,dose1_labuan,dose2_labuan,dose1_sarawak,dose2_sarawak
+﻿date,vaccinated_pop,State,Dose,Total_pop,Normalised Vaccinations,,dose1_perak,dose2_perak,dose1_selangor,dose2_selangor,dose1_kl,dose2_kl,dose1_putrajaya,dose2_putrajaya,dose1_ns,dose2_ns,dose1_melaka,dose2_melaka,dose1_kelantan,dose2_kelantan,dose1_terengganu,dose2_terengganu,dose1_pahang,dose2_pahang,dose1_johor,dose2_johor,dose1_sabah,dose2_sabah,dose1_labuan,dose2_labuan,dose1_sarawak,dose2_sarawak
 3/03/2021,1598,Perlis,1,187756,0.851104625,,,,,,,,,,,,,,,,,,,,,,,,,,,
 3/04/2021,1896,Perlis,1,1595396,1.009821257,,,,,,,,,,,,,,,,,,,,,,,,,,,
 3/05/2021,2223,Perlis,1,1385097,1.183983468,,,,,,,,,,,,,,,,,,,,,,,,,,,
