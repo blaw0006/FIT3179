@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "First dose Vaccinations in Malaysia (March 2021)",
+  "title": "First dose Vaccinations in Malaysia (March 2020)",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
