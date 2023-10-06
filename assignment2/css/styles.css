@@ -7,6 +7,17 @@
 	width: 800px;*/
 }
 
+#area_chart {
+	top: 400px;
+	bottom: 100px;
+	left: 00px;
+	right: 00px;
+}
+
+.centre {
+	height: 40vh;
+}
+
 h1 {
 	/*color: red*/
 	text-align: center

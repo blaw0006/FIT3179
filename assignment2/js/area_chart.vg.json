@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300, "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/vaccination_edited.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Percentage Vaccinated": "number",
+        "Dose": "number",
+        "vaccinated_pop": "number"
+      }
+    }
+  },
+  "mark": "area",
+  "transform": [
+    {"filter": "datum.State == 'Perlis'"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "Percentage Vaccinated",
+      "type": "quantitative",
+      "scale": {"domain": [0,20]}
+    },
+    "color": {
+      "field": "Dose",
+      "scale": {"scheme": "category20b"}
+    }
+  }
+}

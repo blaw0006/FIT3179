@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Vaccination Visualization",
+  "width": 800,
+  "height": 400,
+  "config": {},
+  "signals": [
+    {
+      "name": "selectedState",
+      "init": null,
+      "streams": [
+        {"type": "click", "markname": "geoshape"}
+      ]
+    }
+  ],
+  "vconcat": [
+    {
+      "title": "First dose Vaccinations in Malaysia (March 2020)",
+      "width": 800,
+      "height": 400,
+      "projection": {"type": "equalEarth"},
+      "data": {
+        "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/js/Malaysia_final.json",
+        "format": {"type": "topojson", "feature": "Malaysia"}
+      },
+      "selection": {
+          "stateSelection": {"type": "single", "empty": "none", "on": "click"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.short",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv"
+            },
+            "key": "State",
+            "fields": ["Nominalised_vaccinations"]
+          }
+        },
+        {"calculate": "datum.Nominalised_vaccinations", "as": "Percentage Vaccinated"}
+      ],
+      "mark": {
+        "type": "geoshape"
+},
+      "encoding": {
+        "color": {
+          "field": "Percentage Vaccinated",
+          "type": "quantitative",
+          "scale": {"type": "threshold", "domain": [1, 2, 3, 5, 10]}
+        },
+        "tooltip": [
+          {"field": "properties.short", "type": "nominal", "title": "State"},
+          {"field": "Percentage Vaccinated", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "width": 300,
+      "height": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/vaccination_edited.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Percentage Vaccinated": "number",
+            "Dose": "number",
+            "vaccinated_pop": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "selection": "stateSelection"
+          }
+        }
+      ],
+      "mark": "area",
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {
+          "field": "Percentage Vaccinated",
+          "type": "quantitative",
+          "scale": {"domain": [0, 20]}
+        },
+        "color": {"field": "Dose", "scale": {"scheme": "category20b"}}
+      }
+    }
+  ]
+}
