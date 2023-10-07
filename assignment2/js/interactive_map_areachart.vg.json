@@ -9,7 +9,7 @@
       "name": "selectedState",
       "init": null,
       "streams": [
-        {"type": "click", "markname": "geoshape"}
+        {"type": "click", "markname": "mapMark"}
       ]
     }
   ],
@@ -40,8 +40,12 @@
         {"calculate": "datum.Nominalised_vaccinations", "as": "Percentage Vaccinated"}
       ],
       "mark": {
-        "type": "geoshape"
-},
+        "type": "geoshape",
+        "name": "mapMark",
+        "selection": {
+          "stateSelection": {"type": "single", "empty": "none", "on": "click"}
+        }
+        },
       "encoding": {
         "color": {
           "field": "Percentage Vaccinated",
