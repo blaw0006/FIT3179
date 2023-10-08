@@ -77,7 +77,12 @@
     },
     "color": {
       "field": "Dose",
-      "scale": {"scheme": "category20b"}
-    }
+      "scale": {"scheme": "tableau10"}
+    },
+    "tooltip": [
+      {"field": "date", "type": "temporal", "title": "Date"},
+      {"field": "Percentage Vaccinated", "type": "quantitative", "title": "Percentage Vaccinated"},
+      {"field": "Dose", "type": "nominal", "title": "Dose"}
+    ]
   }
 }
