@@ -12,9 +12,58 @@
       }
     }
   },
+  
+  "params": [
+    {
+      "name": "state_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Perlis",
+          "Kedah",
+          "Penang",
+          "Perak",
+          "Selangor",
+          "Kuala Lumpur",
+          "Putrajaya",
+          "Negeri Sembilan",
+          "Melaka",
+          "Kelantan",
+          "Terengganu",
+          "Pahang",
+          "Johor",
+          "Sabah",
+          "Labuan",
+          "Sarawak"
+        ],
+
+        "labels": [
+          "Perlis",
+          "Kedah",
+          "Penang",
+          "Perak",
+          "Selangor",
+          "Kuala Lumpur",
+          "Putrajaya",
+          "Negeri Sembilan",
+          "Melaka",
+          "Kelantan",
+          "Terengganu",
+          "Pahang",
+          "Johor",
+          "Sabah",
+          "Labuan",
+          "Sarawak"
+        ],
+
+        "name": "State Selection:"
+      }
+    }
+  ],
+
   "mark": "area",
   "transform": [
-    {"filter": "datum.State == 'Perlis'"}
+    {"filter": "state_selection == null || datum.State == state_selection"}
   ],
   "encoding": {
     "x": {
