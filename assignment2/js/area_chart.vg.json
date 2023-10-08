@@ -61,28 +61,44 @@
     }
   ],
 
-  "mark": "area",
-  "transform": [
-    {"filter": "state_selection == null || datum.State == state_selection"}
-  ],
-  "encoding": {
-    "x": {
-      "field": "date",
-      "type": "temporal"
+  "layer": [
+    {
+      "mark": "area",
+      "transform": [
+        {"filter": "state_selection == null || datum.State == state_selection"}
+      ],
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "Percentage Vaccinated",
+          "type": "quantitative",
+          "scale": {"domain": [0,20]}
+        },
+        "color": {
+          "field": "Dose",
+          "scale": {"scheme": "tableau10"}
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Date"},
+          {"field": "Percentage Vaccinated", "type": "quantitative", "title": "Percentage Vaccinated"},
+          {"field": "Dose", "type": "nominal", "title": "Dose"}
+        ]
+      }
     },
-    "y": {
-      "field": "Percentage Vaccinated",
-      "type": "quantitative",
-      "scale": {"domain": [0,20]}
-    },
-    "color": {
-      "field": "Dose",
-      "scale": {"scheme": "tableau10"}
-    },
-    "tooltip": [
-      {"field": "date", "type": "temporal", "title": "Date"},
-      {"field": "Percentage Vaccinated", "type": "quantitative", "title": "Percentage Vaccinated"},
-      {"field": "Dose", "type": "nominal", "title": "Dose"}
-    ]
-  }
+    {
+      "mark": {
+        "type": "text", 
+        "align": "left", 
+        "baseline": "top", 
+        "dx": 10, "dy": -10,
+        "fontWeight": "normal",
+        "font": "serif"},
+      "encoding": {
+        "text": {"value": "Normalised vaccinations"}
+      }
+    }
+  ]
 }
