@@ -1,18 +1,53 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Vaccination Visualization",
-  "width": 800,
-  "height": 400,
-  "config": {},
-  "signals": [
+  "params": [
     {
-      "name": "selectedState",
-      "init": null,
-      "streams": [
-        {"type": "click", "markname": "mapMark"}
-      ]
+      "name": "state_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Perlis",
+          "Kedah",
+          "Penang",
+          "Perak",
+          "Selangor",
+          "Kuala Lumpur",
+          "Putrajaya",
+          "Negeri Sembilan",
+          "Melaka",
+          "Kelantan",
+          "Terengganu",
+          "Pahang",
+          "Johor",
+          "Sabah",
+          "Labuan",
+          "Sarawak"
+        ],
+
+        "labels": [
+          "Perlis",
+          "Kedah",
+          "Penang",
+          "Perak",
+          "Selangor",
+          "Kuala Lumpur",
+          "Putrajaya",
+          "Negeri Sembilan",
+          "Melaka",
+          "Kelantan",
+          "Terengganu",
+          "Pahang",
+          "Johor",
+          "Sabah",
+          "Labuan",
+          "Sarawak"
+        ],
+
+        "name": "State Selection:"
+      }
     }
   ],
+
   "vconcat": [
     {
       "title": "First dose Vaccinations in Malaysia (March 2020)",
@@ -21,31 +56,27 @@
       "projection": {"type": "equalEarth"},
       "data": {
         "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/js/Malaysia_final.json",
-        "format": {"type": "topojson", "feature": "Malaysia"}
+        "format": {
+          "type": "topojson", 
+          "feature": "Malaysia"}
       },
-      "selection": {
-          "stateSelection": {"type": "single", "empty": "none", "on": "click"}
-      },
+      
       "transform": [
         {
-          "lookup": "properties.short",
+          "lookup": "properties.name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv"
+              "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/vaccination_edited.csv"
             },
             "key": "State",
-            "fields": ["Nominalised_vaccinations"]
+            "fields": ["Percentage Vaccinated"]
           }
         },
-        {"calculate": "datum.Nominalised_vaccinations", "as": "Percentage Vaccinated"}
+        {"filter": "datum.date == '1617890400000'"}
       ],
       "mark": {
-        "type": "geoshape",
-        "name": "mapMark",
-        "selection": {
-          "stateSelection": {"type": "single", "empty": "none", "on": "click"}
-        }
-        },
+        "type": "geoshape"
+      },
       "encoding": {
         "color": {
           "field": "Percentage Vaccinated",
@@ -53,7 +84,7 @@
           "scale": {"type": "threshold", "domain": [1, 2, 3, 5, 10]}
         },
         "tooltip": [
-          {"field": "properties.short", "type": "nominal", "title": "State"},
+          {"field": "properties.name", "type": "nominal", "title": "State"},
           {"field": "Percentage Vaccinated", "type": "quantitative"}
         ]
       }
@@ -73,10 +104,8 @@
         }
       },
       "transform": [
-        {
-          "filter": {
-            "selection": "stateSelection"
-          }
+        {"filter": 
+            "state_selection == null || datum.State == state_selection"
         }
       ],
       "mark": "area",
