@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "First dose Vaccinations in Malaysia (March 2020)",
+  "title": "First dose Vaccinations in Malaysia (March 2021)",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -31,7 +31,7 @@
       }
     },
     "tooltip": [
-      {"field": "properties.short", "type": "nominal", "title": "State"},
+      {"field": "properties.name", "type": "nominal", "title": "State"},
       {"field": "Percentage Vaccinated", "type": "quantitative"}
     ]
   },
