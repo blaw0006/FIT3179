@@ -15,19 +15,38 @@
   
 <div class="container">
   <h1>Response of Malaysian states to the first wave of COVID-19</h1>
-  <div id="choropleth_map"></div>
-
-  <div class="area_chart_container">
-    <div id="area_chart"></div>
+  <h2>Population size and Vaccination efficiency</h2>
+  <div class="top-section">
+    
+    <div id="radial_plot"></div>
+    <div class="text-block">
+      <p>This is the top section. Here I will talk about the radial plot, <br>
+        which shows the population of the 6 Malaysian states with <br>
+        the greatest population. I also intend to add a selector so that <br> 
+        users can make it show the 6 Malaysian states with the highest <br>
+        vaccination efficiency. 
+      </p>
+    </div>
   </div>
 
-  <div id="radial_plot"></div>
+  <div class="map-section">
+    <h2>Vaccination rates one month into lockdown</h2>
+    <div id="choropleth_map"></div>
+    <div class="text-block">
+      <p>This is the map section. Here I will talk about the choropleth map.
+  </div>
+
+  <h2>Rapid response vaccinations over the first month</h2>
+  <div class="bottom-section">
+    <div id="area_chart"></div>
+    <div class="text-block">
+      <p>This is the bottom section. Please select a state to fix the area chart.</p>
+    </div>
+  </div>
 </div>
 <!-- <div class="centre"></div> -->
 
 <script src="js/embedding.js">
-
-  
 </script>
 
 </body>
