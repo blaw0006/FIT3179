@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple radial chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Nominalised_vaccinations": "number",
+        "Population": "number"
+      }
+    }
+  },
+  
+  "transform": [
+    {
+  "filter": {"field": "State", "oneOf": ["perlis", "kedah", "penang", "perak", "selangor", "kuala_lumpur", "putrajaya", "negeri_sembilan", "melaka", "kelantan", "terengganu", "pahang", "johor", "sabah", "labuan", "sarawak"]}
+},
+
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "frame": [null, null],
+      "sort": [{"field": "Population", "order": "descending"}]
+    },
+    {
+      "filter": {"field": "rank", "lte": 6}
+    }
+  ],
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+  },{
+    "mark": {"type": "text", "radiusOffset": 10},
+    "encoding": {
+      "text": {"field": "Population", "type": "quantitative"}
+    }
+  }],
+  "encoding": {
+    "theta": {"field": "Population", "type": "quantitative", "stack": true, "sort": "descending"},
+    "radius": {"field": "Population", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+    "color": {"field": "State", 
+    "type": "nominal", 
+    "legend": {
+      "title": "State"
+    }
+    }
+  }
+}
