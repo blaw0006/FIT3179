@@ -36,10 +36,6 @@
   /* Adjust your area chart's styling here */
 }
 
-.text-block {
-  z-index: 2;
-}
-
 #choropleth_map {
   z-index: 2;
   /* Adjust your map's styling here */
@@ -53,4 +49,12 @@
 h1, h2 {
   text-align: center;
   z-index: 2;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.text-block {
+  z-index: 2;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+
 }
