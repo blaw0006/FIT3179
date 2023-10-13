@@ -1,44 +1,64 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "data": {
+  "data": {
     "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv",
     "format": {
       "type": "csv",
       "parse": {
         "Nominalised_vaccinations": "number",
+        "Nominalised_registered": "number",
         "Population": "number",
         "Registered": "number"
       }
     }
   },
-
-"transform": [
-  {
-    "calculate": "datum.Registered / datum.Population",
-    "as": "Nominalised_registered"
-  }
-],
-
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "State",
-      "type": "ordinal",
-      "title": "State"
+  "transform": [
+    {
+      "calculate": "datum.Registered / datum.Population * 100",
+      "as": "Nominalised_registered"
     },
-    "y": {
-      "field": "Nominalised Vaccinations",
-      "aggregate": "count",
-      "type": "quantitative"
-    },
-    "color": {
-      "field": "weather",
-      "type": "nominal",
-      "scale": {
-        "domain": ["sun", "fog", "drizzle", "rain", "snow"],
-        "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
-      },
-      "title": "Weather type"
+    {
+      "calculate": "datum.Nominalised_registered + datum.Nominalised_vaccinations",
+      "as": "Nominalised_total"
     }
-  }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "State",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Nominalised_registered",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Nominalised Registered"
+        },
+
+        "color": {"value": "#e49444"}
+      }
+    }, 
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "State",
+          "type": "ordinal",
+          "title": "State"
+        },
+        "y": {
+          "field": "Nominalised_vaccinations",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Nominalised Vaccinations"
+        },
+
+        "color": {"value": "#5778a4"}
+      }
+    }
+  ]
+
+
 }
