@@ -10,10 +10,10 @@
   },
   "transform": [
     {
-      "lookup": "properties.short",
+      "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data_old.csv"
+          "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv"
         },
         "key": "State",
         "fields": ["Nominalised_vaccinations"]
