@@ -40,11 +40,7 @@
     {"filter": {"field": "rank", "lte": 6}}
   ],
   "layer": [
-    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}},
-    {
-      "mark": {"type": "text", "radiusOffset": 10},
-      "encoding": {"text": {"field": "Population", "type": "quantitative"}}
-    }
+    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}}
   ],
   "encoding": {
     "theta": {
@@ -57,6 +53,11 @@
       "field": "Population",
       "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
     },
-    "color": {"field": "State", "type": "nominal", "legend": {"title": "State"}}
+    "color": {"field": "State", "type": "nominal", "legend": {"title": "State"}
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Population", "type": "quantitative", "title": "Population"}
+    ]
   }
 }
