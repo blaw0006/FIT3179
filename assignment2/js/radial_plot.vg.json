@@ -8,6 +8,16 @@
       "parse": {"Nominalised_vaccinations": "number", "Population": "number"}
     }
   },
+  "params": [
+    {
+      "name": "dataSelector",
+      "bind": {
+        "input": "select",
+        "options": ["Highest Population", "Highest Nominalised Vaccinations"],
+        "name": "Data Selector:"
+      }
+    }
+  ],
   "transform": [
     {
       "filter": {
@@ -35,7 +45,9 @@
     {
       "window": [{"op": "rank", "as": "rank"}],
       "frame": [null, null],
-      "sort": [{"field": "Population", "order": "descending"}]
+      "sort": [
+        {"field": "Population", "order": "descending"}
+      ]
     },
     {"filter": {"field": "rank", "lte": 6}}
   ],
