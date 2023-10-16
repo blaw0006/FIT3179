@@ -37,8 +37,12 @@
           "title": "Nominalised Registered"
         },
 
-        "color": {"value": "#e49444"}
-      }
+        "color": {"value": "#e49444"},
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Nominalised_vaccinations", "type": "quantitative", "title": "Percentage Registered"}
+        ]
+        }
     }, 
     {
       "mark": "bar",
@@ -55,7 +59,13 @@
           "title": "Nominalised Vaccinations"
         },
 
-        "color": {"value": "#5778a4"}
+        "color": {
+          "value": "#5778a4"
+          },
+        "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Nominalised_vaccinations", "type": "quantitative", "title": "Percentage Vaccinated"}
+        ]
       }
     }
   ]

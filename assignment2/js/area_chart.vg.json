@@ -96,8 +96,8 @@
         "align": "left", 
         "baseline": "top", 
         "dx": 10, "dy": -10,
-        "fontWeight": "normal",
-        "font": "serif"},
+        "fontWeight": 100,
+        "font": "Libre Franklin"},
       "encoding": {
         "text": {"value": "Normalised vaccinations"}
       }

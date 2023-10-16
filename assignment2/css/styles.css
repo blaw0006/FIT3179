@@ -57,6 +57,10 @@
   
 }
 
+#stacked_bar {
+  z-index: 2;
+}
+
 #radial_plot {
   z-index: 2;
   
@@ -73,4 +77,9 @@ h1, h2 {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 16px;
 
+  align-items: center;
+  width: 900px;
+  padding: 50px;
+  /*border: 1px solid #000;*/
+  background-color: #e0e0e0;
 }
