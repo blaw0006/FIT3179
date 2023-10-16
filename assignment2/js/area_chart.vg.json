@@ -19,6 +19,7 @@
       "bind": {
         "input": "select",
         "options": [
+          null,
           "Perlis",
           "Kedah",
           "Penang",
@@ -38,6 +39,7 @@
         ],
 
         "labels": [
+          "None",
           "Perlis",
           "Kedah",
           "Penang",
@@ -65,7 +67,7 @@
     {
       "mark": "area",
       "transform": [
-        {"filter": "state_selection == null || datum.State == state_selection"}
+        {"filter": "state_selection !== null && datum.State === state_selection"}
       ],
       "encoding": {
         "x": {
