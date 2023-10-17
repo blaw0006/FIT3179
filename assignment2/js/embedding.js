@@ -17,3 +17,8 @@ var vis_4 = "js/stacked_bar.vg.json";
   vegaEmbed('#stacked_bar', vis_4).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  var vis_5 = "js/interactive_bar_chart.vg.json";
+  vegaEmbed('#interactive_bar', vis_5).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);

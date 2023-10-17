@@ -44,7 +44,7 @@
 
 .bottom-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   width: 900px;
   padding: 50px;
@@ -69,6 +69,10 @@
 #radial_plot {
   z-index: 2;
   
+}
+
+#interactive_bar{
+  z-index: 2;
 }
 
 h1, h2 {
