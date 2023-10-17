@@ -6,7 +6,7 @@
     "format": {
       "type": "csv",
       "parse": {
-        "Nominalised_vaccinations": "number", 
+        "NominalisedVaccinations": "number", 
         "Population": "number",
         "Dose": "number"
         }
@@ -37,6 +37,6 @@
   "transform": [{"filter": "dose_selection != null && datum.Dose == dose_selection"}],
   "encoding": {
     "x": {"field": "State", "type": "nominal"},
-    "y": {"field": "Nominalised_vaccinations", "type": "quantitative"}
+    "y": {"field": "NominalisedVaccinations", "type": "quantitative"}
   }
 }
