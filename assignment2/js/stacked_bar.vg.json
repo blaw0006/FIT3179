@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Percentage of population that has registered for or received a first dose",
   "data": {
     "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv",
     "format": {
@@ -34,13 +35,13 @@
           "field": "Nominalised_registered",
           "type": "quantitative",
           "stack": "zero",
-          "title": "Nominalised Registered"
+          "title": "Percentage of population"
         },
 
         "color": {"value": "#e49444"},
         "tooltip": [
           {"field": "State", "type": "nominal", "title": "State"},
-          {"field": "Nominalised_vaccinations", "type": "quantitative", "title": "Percentage Registered"}
+          {"field": "Nominalised_registered", "type": "quantitative", "title": "Percentage Registered", "format": ".2f"}
         ]
         }
     }, 
@@ -55,8 +56,7 @@
         "y": {
           "field": "Nominalised_vaccinations",
           "type": "quantitative",
-          "stack": "zero",
-          "title": "Nominalised Vaccinations"
+          "stack": "zero"
         },
 
         "color": {
@@ -64,11 +64,20 @@
           },
         "tooltip": [
           {"field": "State", "type": "nominal", "title": "State"},
-          {"field": "Nominalised_vaccinations", "type": "quantitative", "title": "Percentage Vaccinated"}
+          {"field": "Nominalised_vaccinations", "type": "quantitative", "title": "Percentage Vaccinated", "format": ".2f"}
         ]
       }
     }
-  ]
+  ],
 
-
+  "config": {
+    "axis": {
+      "labelFont": "Libre Franklin",
+      "labelFontSize": 10, 
+      "titleFontWeight": 600 
+    },
+    "title": {
+      "font": "Libre Franklin"
+    }
+  }
 }
