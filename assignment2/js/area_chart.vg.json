@@ -96,11 +96,11 @@
         "type": "text", 
         "align": "left", 
         "baseline": "top", 
-        "dx": 10, "dy": -10,
+        "dx": -80, "dy": 40,
         "fontWeight": 100,
         "font": "Libre Franklin"},
       "encoding": {
-        "text": {"value": "Normalised vaccinations"}
+        "text": {"value": "2nd dose vaccinations start three weeks into programme"}
       }
     }
   ],
