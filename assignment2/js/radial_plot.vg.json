@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 6 states by population",
   "description": "A simple radial chart with embedded data.",
   "data": {
     "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data.csv",
@@ -71,5 +72,15 @@
       {"field": "State", "type": "nominal", "title": "State"},
       {"field": "Population", "type": "quantitative", "title": "Population"}
     ]
+  },
+  "config": {
+    "axis": {
+      "labelFont": "Libre Franklin",
+      "labelFontSize": 10, 
+      "titleFontWeight": 600 
+    },
+    "title": {
+      "font": "Libre Franklin"
+    }
   }
 }
