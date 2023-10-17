@@ -107,7 +107,7 @@
   "config": {
     "axis": {
       "labelFont": "Libre Franklin",
-      "labelFontSize": 10, 
+      "labelFontSize": 12, 
       "titleFontWeight": 600 
     },
     "title": {
