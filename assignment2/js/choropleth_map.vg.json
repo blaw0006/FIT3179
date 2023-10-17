@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "First dose Vaccinations in Malaysia (March 2021)",
+  "title": "First dose Vaccinations across Malaysia (9th April 2021)",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -32,8 +32,17 @@
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "State"},
-      {"field": "Percentage Vaccinated", "type": "quantitative"}
+      {"field": "Percentage Vaccinated", "type": "quantitative", "format": ".2f"}
     ]
   },
-  "config": {}
+  "config": {
+    "axis": {
+      "labelFont": "Libre Franklin",
+      "labelFontSize": 10, 
+      "titleFontWeight": 600 
+    },
+    "title": {
+      "font": "Libre Franklin"
+    }
+  }
 }

@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "First and Second dose vaccinations over the first month",
   "width": 300, "height": 200,
   "data": {
     "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/vaccination_edited.csv",
@@ -85,7 +86,7 @@
         },
         "tooltip": [
           {"field": "date", "type": "temporal", "title": "Date"},
-          {"field": "Percentage Vaccinated", "type": "quantitative", "title": "Percentage Vaccinated"},
+          {"field": "Percentage Vaccinated", "type": "quantitative", "title": "Percentage Vaccinated", "format": ".2f"},
           {"field": "Dose", "type": "nominal", "title": "Dose"}
         ]
       }
@@ -102,5 +103,15 @@
         "text": {"value": "Normalised vaccinations"}
       }
     }
-  ]
+  ],
+  "config": {
+    "axis": {
+      "labelFont": "Libre Franklin",
+      "labelFontSize": 10, 
+      "titleFontWeight": 600 
+    },
+    "title": {
+      "font": "Libre Franklin"
+    }
+  }
 }
