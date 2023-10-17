@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data_dose2.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Nominalised_vaccinations": "number", 
+        "Population": "number",
+        "Dose": "number"
+        }
+    }
+  },
+  "params": [
+    {
+      "name": "dose_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          1,
+          2
+        ],
+
+        "labels": [
+          "None",
+          "1",
+          "2"
+        ],
+
+        "name": "Select Dose:"
+      }
+    }
+  ],
+  "mark": "bar",
+  "transform": [{"filter": "dose_selection != null && datum.Dose == dose_selection"}],
+  "encoding": {
+    "x": {"field": "State", "type": "nominal"},
+    "y": {"field": "Nominalised_vaccinations", "type": "quantitative"}
+  }
+}
