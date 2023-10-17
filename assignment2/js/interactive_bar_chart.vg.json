@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Dose 1 and 2 Vaccination rates by end of March",
   "description": "A simple bar chart with embedded data.",
   "data": {
     "url": "https://raw.githubusercontent.com/blaw0006/FIT3179/main/assignment2/data/clean_vaccination_data_dose2.csv",
@@ -37,6 +38,23 @@
   "transform": [{"filter": "dose_selection != null && datum.Dose == dose_selection"}],
   "encoding": {
     "x": {"field": "State", "type": "nominal"},
-    "y": {"field": "NominalisedVaccinations", "type": "quantitative"}
+    "y": {"field": "NominalisedVaccinations", "type": "quantitative", "scale": {"domain": [0, 14]}},
+    "color": {
+      "value": "#5778a4"
+      },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "NominalisedVaccinations", "type": "quantitative", "title": "Percentage Vaccinated", "format": ".2f"}
+      ]
+  },
+  "config": {
+    "axis": {
+      "labelFont": "Libre Franklin",
+      "labelFontSize": 10, 
+      "titleFontWeight": 600 
+    },
+    "title": {
+      "font": "Libre Franklin"
+    }
   }
 }
